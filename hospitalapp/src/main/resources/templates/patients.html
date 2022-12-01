@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Your Requested Data</title>
+<style>
+table,th,td{
+border: 1px solid black;
+padding: 3px;
+text-align: center;
+}
+table{
+border-spacing: 5px;
+}
+</style>
+</head>
+<body style="background-color:rgb(255, 255, 128);">
+<hr> <hr>
+	<H1 align="center">HOSPITAL DATA</H1>
+	<hr>
+	<a th:href="@{/superpage}">homepage</a>
+	 <hr>
+	<br>
+	<br>
+       
+        <table style="width:100%" >
+        <caption>Your Requested Data:  <span ${headMessage}></span> </caption>
+        <tr>
+            <th>Patient Id</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Gender</th>
+            <th>Date</th>
+            <th>City</th>
+            <th>Province Code</th>
+           
+            <th>Allergies</th>
+            <th>Height in cms</th>
+            <th>Weight in lbs</th>
+            
+        </tr>
+        <tr th:each="patient : ${patients}">
+            <td th:text="${patient.patientId}"></td>
+            <td th:text="${patient.firstName}"></td>
+            <td th:text="${patient.lastName}"></td>
+            <td th:text="${patient.gender}"></td>
+            <td th:text="${patient.birthDate}"></td>
+            <td th:text="${patient.city}"></td>
+            <td th:text="${patient.provinceCode}"></td>
+            <td th:text="${patient.allergies}"></td>
+            <td th:text="${patient.height}"></td>
+            <td th:text="${patient.weight}"></td>
+          	
+        </tr>
+    </table>
+    
+    <h3 align = "center">  <div th:if="${message}" th:text="${message}" th:class="${'alert ' + alertClass}"></div> </h3>
+</body>
+</html>

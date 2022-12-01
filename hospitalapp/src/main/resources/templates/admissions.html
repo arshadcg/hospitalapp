@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Your Requested Data</title>
+<style>
+table,th,td{
+border: 1px solid black;
+padding: 3px;
+text-align: center;
+}
+table{
+border-spacing: 5px;
+}
+</style>
+</head>
+<body style="background-color:rgb(255, 255, 128);">
+<hr> <hr>
+	<H1 align="center">HOSPITAL DATA</H1>
+	<hr>
+	<a th:href="@{/superpage}">homepage</a>
+	 <hr>
+	<br>
+	<br>
+       
+        <table style="width:100%" >
+        <caption><h3 align = "center"> Your Requested Data: <div th:if="${headmessage}" th:text="${headmessage}" th:class="${'alert ' + alertClass}"></div> </h3> </caption>
+        <tr>
+            <th>Patient Id</th>
+            <th>Admission Date</th>
+            <th>Discharge Date</th>
+            <th>Diagnosis</th>
+            <th>Attended Doctor Id</th>
+            
+            
+        </tr>
+        <tr th:each="admission : ${admissions}">
+            <td th:text="${admission.patients.patientId}"></td>
+            <td th:text="${admission.admissionDate}"></td>
+            <td th:text="${admission.dischargeDate}"></td>
+            <td th:text="${admission.diagnosis}"></td>
+            <td th:text="${admission.doctors.doctorId}"></td>
+            
+          	
+        </tr>
+    </table>
+    
+    <h3 align = "center">  <div th:if="${message}" th:text="${message}" th:class="${'alert ' + alertClass}"></div> </h3>
+</body>
+</html>

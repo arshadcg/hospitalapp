@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html
+ xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<title>WELCOME</title>
+</head>
+
+<body style="background-color:rgb(255, 255, 128);">
+<style>
+.topnav {
+  background-color: #333;
+  overflow: hidden;
+}
+
+/* Style the links inside the navigation bar */
+.topnav a {
+  float: left;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+/* Change the color of links on hover */
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+/* Add a color to the active/current link */
+.topnav a.active {
+  background-color: #4CAF50;
+  color: white;
+}
+</style>
+<hr>
+<H1 align="center">HOSPITAL Master Data</H1>
+<hr>
+	<a th:href="@{/superpage}">homepage</a>
+	 <hr>
+<hr>
+<div class="topnav">
+<a th:href="@{/super/patients}">Get List of All patients</a> 
+<a th:href="@{/super/admissions}">Get List of All Admissions</a>
+<a th:href="@{/super/doctors}">Get List of All Doctors </a>
+<a th:href="@{/super/provinceNames}">Get List of All Province</a><br>
+</div><br>
+
+<h2>Find custom details</h2><br>
+
+<form action="/super/patients/byCity" method="post">
+=> Get list of patients for the given city: <input type="text" name="cityName"> <input type="submit" value ="Search">
+</form>
+
+<form action="/super/province/update" method="post">
+=> Update province Id for given province code:  <input type="submit" value ="Update"> <h4> <div th:if="${updatemessage}" th:text="${updatemessage}" th:class="${'alert ' + alertClass}"></div></h4> 
+</form>
+
+
+<div class="second">
+<h2>Patients analytics Section :</h2>
+
+ <form action="/super/patients/count/city">
+  <label for="city">Count of patients from City:</label>
+  <select name="city" id="city">
+    
+      <option value="Ajax">Ajax</option>
+<option value="Ancaster">Ancaster</option>
+<option value="Athens">Athens</option>
+<option value="Bancroft">Bancroft</option>
+<option value="Barrie">Barrie</option>
+<option value="Bartonville">Bartonville</option>
+<option value="Beamsville">Beamsville</option>
+<option value="Beaverton">Beaverton</option>
+<option value="Brampton">Brampton</option>
+<option value="Brantford">Brantford</option>
+<option value="Brockville">Brockville</option>
+<option value="Burlington">Burlington</option>
+<option value="Caledonia">Caledonia</option>
+<option value="Calgary">Calgary</option>
+<option value="Cambridge">Cambridge</option>
+<option value="Carisle">Carisle</option>
+<option value="Carlisle">Carlisle</option>
+<option value="Cayuga">Cayuga</option>
+<option value="Chicoutimi">Chicoutimi</option>
+<option value="Delhi">Delhi</option>
+<option value="Dundas">Dundas</option>
+<option value="Dunnville">Dunnville</option>
+<option value="Dunton">Dunton</option>
+<option value="Edmonton">Edmonton</option>
+<option value="Elmira">Elmira</option>
+<option value="Elmwood">Elmwood</option>
+<option value="Fonthill">Fonthill</option>
+<option value="Fruitland">Fruitland</option>
+<option value="Georgetown">Georgetown</option>
+<option value="Grimsby">Grimsby</option>
+<option value="Guelph">Guelph</option>
+<option value="Halifax">Halifax</option>
+<option value="Hamilton">Hamilton</option>
+<option value="Hargersville">Hargersville</option>
+<option value="Hepworth">Hepworth</option>
+<option value="Highland">Highland</option>
+<option value="Inverness">Inverness</option>
+<option value="Kapuskasing">Kapuskasing</option>
+<option value="Kelowna">Kelowna</option>
+<option value="Kingston">Kingston</option>
+<option value="Linton">Linton</option>
+<option value="London">London</option>
+<option value="Marcam">Marcam</option>
+<option value="Milgrove">Milgrove</option>
+<option value="Milton">Milton</option>
+<option value="Mississauga">Mississauga</option>
+<option value="Misty">Misty</option>
+<option value="Montreal">Montreal</option>
+<option value="Newmarket">Newmarket</option>
+<option value="Niagara Falls">Niagara Falls</option>
+<option value="North York">North York</option>
+<option value="Northbay">Northbay</option>
+<option value="Oakville">Oakville</option>
+<option value="Odessa">Odessa</option>
+<option value="Orangeville">Orangeville</option>
+<option value="Orillia">Orillia</option>
+<option value="Oshawa">Oshawa</option>
+<option value="Ottawa">Ottawa</option>
+<option value="Paris">Paris</option>
+<option value="Peterborough">Peterborough</option>
+<option value="Pickering">Pickering</option>
+<option value="Port Dover">Port Dover</option>
+<option value="Port Hawkesbury">Port Hawkesbury</option>
+<option value="Red Deer">Red Deer</option>
+<option value="Red River">Red River</option>
+<option value="Rockford">Rockford</option>
+<option value="Sarnia">Sarnia</option>
+<option value="Saskatoon">Saskatoon</option>
+<option value="Scarborough">Scarborough</option>
+<option value="Selkirk">Selkirk</option>
+<option value="Simcoe">Simcoe</option>
+<option value="Smithville">Smithville</option>
+<option value="St. Catharines">St. Catharines</option>
+<option value="St. Johns">St. Johns</option>
+<option value="Stainer">Stainer</option>
+<option value="Stoney Creek">Stoney Creek</option>
+<option value="Thunder Bay">Thunder Bay</option>
+<option value="Timmins">Timmins</option>
+<option value="Toronto">Toronto</option>
+<option value="Troy">Troy</option>
+<option value="Tuscorora">Tuscorora</option>
+<option value="Tyndale">Tyndale</option>
+<option value="Unionville">Unionville</option>
+<option value="Ureterburg">Ureterburg</option>
+<option value="Vancouver">Vancouver</option>
+<option value="Victoria">Victoria</option>
+<option value="Walnut Grove">Walnut Grove</option>
+<option value="Waterford">Waterford</option>
+<option value="Waterloo">Waterloo</option>
+<option value="Whitby">Whitby</option>
+<option value="Windsor">Windsor</option>
+<option value="Winona">Winona</option>
+  
+  </select>
+  <br><br>
+  <input type="submit" value="Submit">
+</form>
+</div>
+
+<h3 align = "left"> <div th:if="${message}" th:text="${message}" th:class="${'alert ' + alertClass}"></div> </h3>
+</body>
+
+</html>
