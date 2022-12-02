@@ -38,6 +38,13 @@ public class SuperController {
 	@Autowired private Patients patients;
 	@Autowired private Province province;*/
 	
+	
+	@GetMapping("/superpage")
+	public String superPage()
+	{
+		
+		return "superpage";
+	}
 	//get all patients
 	@GetMapping("/patients")
 	public String getlAllPatients(Model model)

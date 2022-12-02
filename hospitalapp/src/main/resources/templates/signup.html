@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<title>WELCOME</title>
+</head>
+
+<body style="background-color: rgb(255, 255, 128);">
+	<style>
+.topnav {
+	background-color: rgb(255, 255, 128);
+	overflow: hidden;
+}
+
+/* Style the links inside the navigation bar */
+.topnav a {
+	float: left;
+	color: #f2f2f2;
+	text-align: center;
+	padding: 14px 16px;
+	text-decoration: none;
+	font-size: 17px;
+}
+
+/* Change the color of links on hover */
+.topnav a:hover {
+	background-color: rgb(255, 255, 128);
+	color: black;
+}
+
+/* Add a color to the active/current link */
+.topnav a.active {
+	background-color: #4CAF50;
+	color: white;
+}
+</style>
+	<hr>
+	<hr>
+	<a th:href="@{/}">Home</a>
+	 <hr><H1 align="center">HOSPITAL MANAGEMENT</H1>
+	<hr>
+	<div class="topnav">
+
+		<form action="/register" method="post">
+
+			<table border='0' width='480px' cellpadding='0' cellspacing='0'
+				align='center'>
+				
+				<tr>
+					   
+					<td><H2 align="center">User Registration Form</H2></td>
+				</tr>
+				
+					 
+					<table border='0' width='480px' cellpadding='0' cellspacing='0'
+						align='center'>
+						<tr>
+							    
+							<td align='center'>Create User Name:</td>     
+							<td><input type='text' name='userName'></td>
+							<td><h3 align="left">
+									<div th:if="${userDuplicate}" th:text="${userDuplicate}"
+										th:class="${'alert ' + alertClass}"></div>
+								</h3></td>
+						</tr>
+						<tr>
+							<td>&nbsp;</td>
+						</tr>
+						<tr>
+							    
+							<td align='center'>Create Password:</td>     
+							<td><input type="password" name='password'></td>
+						</tr>
+						<tr>
+							<td>&nbsp;</td>
+						</tr>
+						<tr>
+							    
+							<td align='center'>First Name:</td>     
+							<td><input type='text' name='firstName'></td>
+						</tr>
+						<tr>
+							<td>&nbsp;</td>
+						</tr>
+						<tr>
+							    
+							<td align='center'>Last Name:</td>     
+							<td><input type='text' name='latName'></td>
+						</tr>
+						<tr>
+							<td>&nbsp;</td>
+						</tr>
+						<tr>
+							    
+							<td align='center'>Email Id</td>     
+							<td><input type='text' name='emailId'></td>
+						</tr>
+						<tr>
+							<td>&nbsp;</td>
+						</tr>
+						<tr>
+							    
+							<td align='center'>Address:</td>     
+							<td><input type='text' name='addressLine'></td>
+						</tr>
+						<tr>
+							<td>&nbsp;</td>
+						</tr>
+						<tr>
+							    
+							<td align='center'>City Name:</td>     
+							<td><input type='text' name='cityName'></td>
+						</tr>
+						<tr>
+							<td>&nbsp;</td>
+						</tr>
+						<tr>
+							    
+							<td align='center'>Contact Number:</td>     
+							<td><input type='text' name='contactNumber'></td>
+						</tr>
+						<tr>
+							<td>&nbsp;</td>
+						</tr>
+						<table border='0' cellpadding='0' cellspacing='0' width='480px'
+							align='center'>
+							<tr>
+								    
+								<td align='center'><input type='submit' name='REGISTER'
+									value="Register"></td>
+							</tr>
+						</table>
+					</table>
+					 
+			</table>
+	</div>
+	</form>
+	<h3 align="center">
+		<div th:if="${message}" th:text="${message}"
+			th:class="${'alert ' + alertClass}"></div>
+	</h3>
+</body>
+
+</html>

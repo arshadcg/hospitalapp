@@ -36,11 +36,16 @@
   color: white;
 }
 </style>
+<H4 align="right"><form th:action="@{/logout}" method="POST">
+        <input type="submit" value="Logout"/>
+   </form> </H4> <hr> 
 <hr>
-<H1 align="center">HOSPITAL Master Data</H1>
-<hr>
-	<a th:href="@{/superpage}">homepage</a>
+<H1 align="center">HOSPITAL Master Data</H1> <hr> 
+	<a th:href="@{/super/superpage}">homepage</a>  
 	 <hr>
+
+	
+	 
 <hr>
 <div class="topnav">
 <a th:href="@{/super/patients}">Get List of All patients</a> 
